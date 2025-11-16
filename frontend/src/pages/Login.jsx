@@ -20,8 +20,7 @@ const Login = () => {
   const [toast, setToast] = useState({ open: false, severity: "success", message: "" });
   const navigate = useNavigate();
 
-  // Use Vite env var when deployed, fallback to localhost for local dev
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API_URL = import.meta.env.VITE_API_URL || "https://mobile-app-rb5q.onrender.com";
 
   const showMessage = (message, severity = "success", autoHide = 3000) => {
     setToast({ open: true, severity, message, autoHide });
