@@ -1,4 +1,3 @@
-// backend/config/db.js
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
@@ -10,12 +9,13 @@ export const connectDB = async () => {
   try {
     await mongoose.connect(uri, {
       dbName: process.env.MONGO_DBNAME || "taskmanager",
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      retryWrites: true
     });
     console.log("MongoDB connected");
   } catch (err) {
     console.error("MongoDB connection error:", err);
-    process.exit(1);
+    throw err; // allow caller to handle exit
   }
 };

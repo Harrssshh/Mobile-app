@@ -20,6 +20,9 @@ const Login = () => {
   const [toast, setToast] = useState({ open: false, severity: "success", message: "" });
   const navigate = useNavigate();
 
+  // Use Vite env var when deployed, fallback to localhost for local dev
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const showMessage = (message, severity = "success", autoHide = 3000) => {
     setToast({ open: true, severity, message, autoHide });
   };
@@ -29,7 +32,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
