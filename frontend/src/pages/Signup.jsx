@@ -27,6 +27,9 @@ const Signup = () => {
   });
   const navigate = useNavigate();
 
+  // Use Vite env var when deployed, fallback to localhost for dev
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const showMessage = (message, severity = "success", autoHide = 3000) => {
     setToast({ open: true, message, severity, autoHide });
   };
@@ -47,7 +50,7 @@ const Signup = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/signup", {
+      const res = await fetch(`${API_URL}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -61,6 +64,7 @@ const Signup = () => {
       try {
         data = await res.json();
       } catch (err) {
+        data = null;
       }
 
       if (!res.ok) {
