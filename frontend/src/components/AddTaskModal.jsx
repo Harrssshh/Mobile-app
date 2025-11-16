@@ -14,7 +14,7 @@ import {
   Box
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { addTask, updateTask } from '../Redux/taskSlice'; // adjust path if needed
+import { addTask, updateTask } from '../redux/taskSlice'; // adjust path if needed
 
 const capitalize = (s) => {
   if (!s) return s;

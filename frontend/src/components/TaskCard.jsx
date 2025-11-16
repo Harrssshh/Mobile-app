@@ -18,7 +18,7 @@ import {
   deleteComment,
   addAttachment,
   deleteAttachment
-} from '../Redux/taskSlice';
+} from '../redux/taskSlice';
 
 const priorityColors = {
   high: '#ef4444',

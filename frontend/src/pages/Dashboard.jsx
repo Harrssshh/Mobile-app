@@ -26,9 +26,9 @@ import Navbar from '../components/Navbar';
 import TaskCard from '../components/TaskCard';
 import AddTaskModal from '../components/AddTaskModal';
 import ShareDialog from '../components/ShareDialog';
-import { moveTask, setDateFilter, setFilter } from '../Redux/taskSlice';
+import { moveTask, setDateFilter, setFilter } from '../redux/taskSlice';
 
-import { updateTask, deleteTask } from '../Redux/taskSlice';
+import { updateTask, deleteTask } from '../redux/taskSlice';
 
 const drawerWidth = 96;
 
