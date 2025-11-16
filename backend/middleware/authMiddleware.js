@@ -1,4 +1,3 @@
-// backend/middleware/authMiddleware.js
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
@@ -13,7 +12,6 @@ export const verifyToken = async (req, res, next) => {
     const payload = jwt.verify(token, secret);
     req.userId = payload.id;
 
-    // optional: load user from DB and attach safe fields
     const user = await User.findById(req.userId).select("-password");
     if (!user) return res.status(401).json({ error: "User not found" });
     req.user = user;

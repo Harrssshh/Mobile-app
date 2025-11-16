@@ -27,7 +27,6 @@ const Signup = () => {
   });
   const navigate = useNavigate();
 
-  // Use Vite env var when deployed, fallback to localhost for dev
   const API_URL = import.meta.env.VITE_API_URL || "https://mobile-app-rb5q.onrender.com";
 
   const showMessage = (message, severity = "success", autoHide = 3000) => {
